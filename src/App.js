@@ -6,11 +6,14 @@ import "react-bootstrap";
 import MainPage from './comps/main';
 import ContactPage from './comps/contact';
 import AboutPage from './comps/about';
+import Footer from './comps/footer';
 import './styles/product.css'
 import { Fragment } from 'react';
 import { Component, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 
 toast.configure()
 const NavBar = withRouter(({history}) => {
@@ -28,13 +31,13 @@ const NavBar = withRouter(({history}) => {
 })
 
 
-const Footer = () => {
-  return  <footer class="bg-light text-center text-lg-start">
-  <div class="text-center p-3" style={{backgroundColor:"rgba(0,0,0,0.2)"}}>
-    <a class="text-dark" href="#">Barcelona.com</a>
-  </div>
-</footer>
-}
+// const Footer = () => {
+//   return  <footer class="bg-light text-center text-lg-start">
+//   <div class="text-center p-3" style={{backgroundColor:"rgba(0,0,0,0.2)"}}>
+//     <a class="text-dark" href="#">Barcelona.com</a>
+//   </div>
+// </footer>
+// }
 
 const A = 65 // ASCII character code
 
