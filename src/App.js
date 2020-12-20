@@ -7,7 +7,12 @@ import MainPage from './comps/main';
 import ContactPage from './comps/contact';
 import AboutPage from './comps/about';
 import './styles/product.css'
+import { Fragment } from 'react';
+import { Component, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const NavBar = withRouter(({history}) => {
   
   return <nav class="site-header sticky-top py-1">
@@ -31,13 +36,55 @@ const Footer = () => {
 </footer>
 }
 
+const A = 65 // ASCII character code
+
+class ParentComponent extends Component {
+
+  letters = Array.from({length: 26}, (_, i) => String.fromCharCode(A + i))
+  
+  
+
+  handleChange = () => {
+    alert("Child handler called")
+  }
+
+  handleChangeWithArgs = (arg) => {
+    
+
+    var num = Math.floor(Math.random() * this.letters.length)
+    if(this.letters[num] == "A"){
+
+      // alert("მოიგეთ: " + this.letters[num])
+      toast.success("მოიგეთ: " + this.letters[num], {position: toast.POSITION.TOP_CENTER})
+
+
+
+    }else{
+    toast.warning('კიდევ სცადეთ: ' + this.letters[num],{position: toast.POSITION.TOP_RIGHT});
+    }
+  }
+
+  render() {
+    return <Fragment>
+        <MainPage onChange={this.handleChangeWithArgs}/>
+    </Fragment>
+  } 
+
+}
+
+
+
+
+
+
 function App() {
   return (
     <div className="App">
      <BrowserRouter>
+        {/* <Alphabet/> */}
         <NavBar/>
         <Switch>
-          <Route path="/" exact component={MainPage} />
+          <Route path="/" exact component={ParentComponent} />
           <Route path="/contact" exact component={ContactPage} />
           <Route path="/about" exact component={AboutPage} />
         </Switch>
