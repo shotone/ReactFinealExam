@@ -4,6 +4,7 @@ import "react-bootstrap";
 import '../styles/main.css';
 
 
+
 const Footer = () => {
     return <footer class="new_footer_area bg_color">
      <div class="new_footer_top">

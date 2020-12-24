@@ -7,8 +7,11 @@ import MainPage from './comps/main';
 import ContactPage from './comps/contact';
 import AboutPage from './comps/about';
 import Footer from './comps/footer';
+import Movies from './comps/movies';
+
+
 import './styles/product.css'
-import { Fragment } from 'react';
+import { Fragment }  from 'react';
 import { Component, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,6 +29,7 @@ const NavBar = withRouter(({history}) => {
     <a type="button" onClick={() => { history.push("/") }} class="nav-item nav-link active">მთავარი <span class="sr-only">(current)</span></a>
         <a type="button" onClick={() => { history.push("/contact") }} class="nav-item nav-link">კონტაქტი</a>
         <a type="button" onClick={() => { history.push("/about") }} class="nav-item nav-link">ჩვენს შესახებ</a>
+        <a type="button" onClick={() => { history.push("/movies") }} class="nav-item nav-link">ფილმები</a>
   </div>
 </nav>    
 })
@@ -84,12 +88,12 @@ function App() {
   return (
     <div className="App">
      <BrowserRouter>
-        {/* <Alphabet/> */}
         <NavBar/>
         <Switch>
           <Route path="/" exact component={ParentComponent} />
           <Route path="/contact" exact component={ContactPage} />
           <Route path="/about" exact component={AboutPage} />
+          <Route path="/movies" exact component={Movies} />
         </Switch>
         <Footer/>
      </BrowserRouter>
